@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">HeyWash</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="hey_wash">Hey! Let's do laundry!</string>
     <string name="action_settings">Settings</string>
     <string name="heywash_slogan">Hey! Come do laundry with us!</string>
     <string name="email_placeholder">yourname@email.com</string>
