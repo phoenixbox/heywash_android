@@ -1,23 +1,27 @@
 package com.example.shanerogers.heywash;
 
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.os.Build;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 
 public class LoginController extends ActionBarActivity implements View.OnClickListener {
     // UI Elements
     TextView loginTextView ;
     Button loginButton ;
+    ListView loginListView ;
+    ArrayAdapter loginArrayAdapter;
+    ArrayList valuePropList = new ArrayList();
+    EditText emailInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +38,13 @@ public class LoginController extends ActionBarActivity implements View.OnClickLi
         loginButton = (Button) findViewById(R.id.login_button);
         loginButton.setOnClickListener(this);
         loginButton.setText("Sign In");
+
+        loginListView = (ListView) findViewById(R.id.login_listView);
+        loginArrayAdapter = new ArrayAdapter(this,
+                android.R.layout.simple_list_item_1,
+                valuePropList);
+
+        loginListView.setAdapter(loginArrayAdapter);
     }
 
 
@@ -61,6 +72,8 @@ public class LoginController extends ActionBarActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-        loginTextView.setText("Button was pressed!");
+        emailInput = (EditText) findViewById(R.id.login_emailInput);
+        valuePropList.add(emailInput.getText().toString());
+        loginArrayAdapter.notifyDataSetChanged();
     }
 }
