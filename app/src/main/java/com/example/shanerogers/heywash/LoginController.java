@@ -10,14 +10,24 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
+import android.widget.TextView;
 
 
 public class LoginController extends ActionBarActivity {
+    // UI Elements
+    TextView loginTextView ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_controller);
+
+        // Programatically set the TextView
+        //        UILabel *header = [UITextLabel new];
+        //        [header setText:@"Im the header!"];
+        //        [self addSubview:header];
+        loginTextView = (TextView) findViewById(R.id.login_textview);
+        loginTextView.setText("Reset!");
     }
 
 
