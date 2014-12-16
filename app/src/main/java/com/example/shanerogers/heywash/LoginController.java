@@ -10,12 +10,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
+import android.widget.Button;
 import android.widget.TextView;
 
 
-public class LoginController extends ActionBarActivity {
+public class LoginController extends ActionBarActivity implements View.OnClickListener {
     // UI Elements
     TextView loginTextView ;
+    Button loginButton ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,10 @@ public class LoginController extends ActionBarActivity {
         //        [self addSubview:header];
         loginTextView = (TextView) findViewById(R.id.login_textview);
         loginTextView.setText("Reset!");
+
+        loginButton = (Button) findViewById(R.id.login_button);
+        loginButton.setOnClickListener(this);
+        loginButton.setText("Sign In");
     }
 
 
@@ -53,4 +59,8 @@ public class LoginController extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onClick(View v) {
+        loginTextView.setText("Button was pressed!");
+    }
 }
